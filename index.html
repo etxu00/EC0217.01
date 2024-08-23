@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es-419" class="min">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO217.01</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html.min {
+      font-size: 12px;
+      font-family: sans-serif;
+      color-scheme: light dark;
+      background-color-scheme: light dark;
+    }
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    }
+    header {
+      grid-area: header;
+    }
+    nav {
+      grid-area: nav;
+      max-width: 200px;
+    }
+    main {
+      grid-area: main;
+    }
+    footer {
+      grid-area: footer;
+    }
+    aside {
+      grid-area: aside;
+      display: none
+    }
+  </style>
+</head>
+<body>
+  <header>
+    header
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#"><icon-custom>🏠</icon-custom><span>Inicio</span></a></li>
+      <li>
+        <a href="#"><icon-custom>📄</icon-custom><span>Cursos</span></a>
+        <ul>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Cursos</span></a></li>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Materias</span></a></li>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Unidades</span></a></li>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Temas</span></a></li>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Actividades</span></a></li>
+          <li><a href="#"><icon-custom>📋</icon-custom><span>Evaluaciones</span></a></li>
+        </ul>
+      </li>
+      <li><a href="#"><icon-custom>📋</icon-custom><span>Encuentas</span></a></li>
+      <li><a href="#"><icon-custom>🧑‍🎓</icon-custom><span>Alumnos</span></a></li>
+      <li>
+        <a><icon-custom>⚙️</icon-custom><span>Configuración</span></a>
+        <ul>
+          <li><a href="#"><icon-custom>🖋️</icon-custom><span>Roles</span></a></li>
+          <li><a href="#"><icon-custom>✅</icon-custom><span>Permisos</span></a></li>
+          <li><a href="#"><icon-custom>👤</icon-custom><span>Usuarios</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <style>
+      main:has(:not(input[type="checkbox"]:checked)) section-item-selected {
+        display: none;
+      }
+    </style>
+    <header-table>
+      <style>
+        header-table {
+          section {
+            align-items: center;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+          }
+        }
+      </style>
+      <section>
+        <nav-breadcrumb>
+          <style>
+            nav-breadcrumb {
+              ul {
+                display: flex;
+                gap: 0.5rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                li:not(:last-child) {
+                  &:after {
+                    margin-left: 0.5rem;
+                    content: '>';
+                  }
+                }
+              }
+            }
+          </style>
+          <nav>
+            <ul>
+              <li><a href="#">Nuevo</a></li>
+              <li><a href="#">Editar</a></li>
+              <li><a href="#">Exportar</a></li>
+              <li><a href="#">Importar</a></li>
+            </ul>
+          </nav>
+        </nav-breadcrumb>
+        <input type="search">
+        <section>
+          <button type="button">✂️</button>
+          <button type="button">📋</button>
+          <button type="button">📄</button>
+          <details>
+            <summary>➕</summary>
+            <div>
+              <div><button type="button">📝</button></div>
+              <div><button type="button">📂</button></div>
+              <div><button type="button">📁</button></div>
+            </div>
+          </details>
+        </section>
+      </section>
+      <section-item-selected>
+        <style>
+          section-item-selected {
+            display: flex;
+            gap: 1rem;
+          }
+        </style>
+        <span>1 item seleccionado</span>
+        <section>
+          <button type="button">📝</button>
+          <button type="button">📂</button>
+          <button type="button">📁</button>
+          <button type="button">🗑️</button>
+        </section>
+      </section-item-selected>
+    </header-table>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        th, td {
+          border: none;
+        }
+        tbody {
+          tr {
+            &:nth-child(odd) {
+              background-color: rgba(255, 255, 255, 0.10);
+            }
+            &:not(:hover) {
+              td:last-child {
+                section {
+                  display: none;
+                }
+              }
+            }
+            td:last-child {
+              position: relative;
+              section {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                display: flex;
+                gap: 0.5rem;
+                right: 0;
+                button {
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    </style>
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox"></th>
+          <th><span>Icon</span></th>
+          <th><span>Nombre</span></th>
+          <th><span>Descripción</span></th>
+          <th><span>Etiquetas</span></th>
+          <th><span>Fecha de creación</span></th>
+          <th><span>Fecha de edición</span></th>
+          <th><span>Usuario</span></th>
+          <th><span>Estatus</span></th>
+          <th><span>Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><span>🖼️</span></td>
+          <td><span contenteditable="true">Introducción a CSS</span></td>
+          <td><span>Sintax, Conceptos y Estructura de CSS</span></td>
+          <td>
+            <span>Frontend</span>
+            <span>Básico</span>
+            <span>Web</span>
+            <span>Programación</span>
+          </td>
+          <td><span>Fecha de creación</span></td>
+          <td><span>Fecha de edición</span></td>
+          <td><span>Usuario</span></td>
+          <td><span>Estatus</span></td>
+          <td>
+            <section>
+              <button type="button">🖋️</button>
+              <button type="button">⭐</button>
+              <button type="button">🏷️</button>
+              <details>
+                <summary>➕</summary>
+                <div>
+                  <div><button type="button">⏸️</button></div>
+                  <div><button type="button">▶️</button></div>
+                  <div><button type="button">🔒</button></div>
+                  <div><button type="button">🔓</button></div>
+                  <div><button type="button">🗑️</button></div>
+                </div>
+              </details>
+            </section>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    footer
+  </footer>
+  <aside>
+    <form>
+      <label>
+        <span>Nombre</span>
+        <input type="text">
+      </label>
+      <label>
+        <span>Descripción</span>
+        <input type="search">
+      </label>
+      <label>
+        <span>Etiquetas</span>
+        <span>Etiqueta 1</span>
+        <span>Etiqueta 2</span>
+        <span>Etiqueta 3</span>
+        <span>Etiqueta 4</span>
+      </label>
+    </form>
+    <img src="https://lorempixel.com/80/80" altvb="">
+    <img src="https://lorempixel.com/80/80?x=1vb" alt="">
+    <img src="https://lorempixel.com/80/80?x=1" alt="">
+    <img src="https://lorempixel.com/80/80?x=v1" alt="">
+    <img src="https://lorempixel.com/80/80?x=1v" alt="">
+    <img src="https://lorempixel.com/80/80?x=1vc" alt="">
+    <img src="https://lorempixel.com/80/80?x=1x" alt="">
+    <img src="https://lorempixel.com/80/80?x=1wq" alt="">
+    <img src="https://lorempixel.com/80/80?x=1a" alt="">
+    <img src="https://lorempixel.com/80/80?x=11" alt="">
+    <img src="https://lorempixel.com/80/80?x=10" alt="">
+    <img src="https://lorempixel.com/80/80?x=19" alt="">
+    <img src="https://lorempixel.com/80/80?x=18" alt="">
+    <img src="https://lorempixel.com/80/80?x=17" alt="">
+    <img src="https://lorempixel.com/80/80?x=132" alt="">
+    <img src="https://lorempixel.com/80/80?x=11" alt="">
+    <img src="https://lorempixel.com/80/80?x=17781" alt="">
+    <img src="https://lorempixel.com/80/80?x=11232" alt="">
+    <img src="https://lorempixel.com/80/80?x=1231" alt="">
+    <img src="https://lorempixel.com/80/80?x=2221" alt="">
+    <img src="https://lorempixel.com/80/80?x=111" alt="">
+    <img src="https://lorempixel.com/80/80?x=11" alt="">
+  </aside>
+</body>
+</html>
