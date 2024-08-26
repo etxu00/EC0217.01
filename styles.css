@@ -317,6 +317,11 @@ button-group {
   i {
     font-style: normal;
   }
+
+  &.primary {
+    background-color: var(--color-primary);
+    color: white;
+  }
 }
 
 /* ASPECTOS */
@@ -374,3 +379,23 @@ button-group {
 
 
 /* FIN: ANCLAS & BOTONES */
+
+
+
+/* INICIO: FORMULARIOS */
+
+label {
+  display: block;
+  padding: var(--padding);
+
+  i {
+    font-style: normal;
+  }
+}
+
+fieldset:not(.block) {
+  display: flex;
+  gap: var(--gap);
+}
+
+/* FIN: FORMULARIOS */

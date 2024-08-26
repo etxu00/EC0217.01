@@ -70,130 +70,358 @@
     </ul>
   </nav>
   <main>
-    <header-table>
-      <tabs-section>
-        <a href="#" class="on">Pestaña 1</a>
-        <a href="#">Pestaña 2</a>
-        <a href="#">Pestaña 3</a>
-        <a href="#">Pestaña 4</a>
-        <a href="#">Pestaña 5</a>
-      </tabs-section>
-      <section-default>
-        <nav-breadcrumb>
-          <a href="#"><span>Inicio</span></a>
-          <a href="#"><span>Cursos</span></a>
-          <a href="#"><span>Materias</span></a>
-        </nav-breadcrumb>
-        <input type="search">
-        <button-group class="min">
-          <button type="button">
-            <i>⭐</i>
-            <span>Favoritos</span>
+    <section hidden>
+      <header-table>
+        <tabs-section>
+          <a href="#" class="on">Pestaña 1</a>
+          <a href="#">Pestaña 2</a>
+          <a href="#">Pestaña 3</a>
+          <a href="#">Pestaña 4</a>
+          <a href="#">Pestaña 5</a>
+        </tabs-section>
+        <section-default>
+          <nav-breadcrumb>
+            <a href="#"><span>Inicio</span></a>
+            <a href="#"><span>Cursos</span></a>
+            <a href="#"><span>Materias</span></a>
+          </nav-breadcrumb>
+          <label>
+            <i>🔍</i>
+            <span>Buscar</span>
+            <input type="search" placeholder="Buscar...">
+          </label>
+          <button-group class="min">
+            <button type="button">
+              <i>⭐</i>
+              <span>Favoritos</span>
+            </button>
+            <button type="button">
+              <i>⭐</i>
+              <span>Favoritos</span>
+            </button>
+            <button type="button">
+              <i>⭐</i>
+              <span>Favoritos</span>
+            </button>
+            <button type="button">
+              <i>⭐</i>
+              <span>Favoritos</span>
+            </button>
+            <button type="button">
+              <i>⭐</i>
+              <span>Favoritos</span>
+            </button>
+          </button-group>
+        </section-default>
+        <section-item-selected>
+          <style>
+            section-item-selected {
+              display: flex;
+              display: none;
+              gap: 1rem;
+            }
+          </style>
+          <span>1 item seleccionado</span>
+          <section>
+            <button type="button">📝</button>
+            <button type="button">📂</button>
+            <button type="button">📁</button>
+            <button type="button">🗑️</button>
+          </section>
+        </section-item-selected>
+      </header-table>
+  
+      <table>
+        <colgroup>
+          <col style="width: 14px">
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th><span>Icon</span></th>
+            <th>
+              <span>Nombre</span>
+              <button type="button">🔼</button>
+              <button type="button">🔽</button>
+              <button type="button">🔍</button>
+            </th>
+            <th><span>Descripción</span></th>
+            <th><span>Etiquetas</span></th>
+            <th><span>Fecha de creación</span></th>
+            <th><span>Fecha de edición</span></th>
+            <th><span>Usuario</span></th>
+            <th><span>Estatus</span></th>
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>🖼️</td>
+            <td>Introducción a CSS</td>
+            <td>Sintax, Conceptos y Estructura de CSS</td>
+            <td>
+              <span>Frontend</span>
+              <span>Básico</span>
+              <span>Web</span>
+              <span>Programación</span>
+            </td>
+            <td>Fecha de creación</td>
+            <td>Fecha de edición</td>
+            <td>Usuario</td>
+            <td>Estatus</td>
+            <td>
+              <section>
+                <button type="button">🖋️</button>
+                <button type="button">⭐</button>
+                <button type="button">🏷️</button>
+                <details>
+                  <summary>➕</summary>
+                  <div>
+                    <div><button type="button">⏸️</button></div>
+                    <div><button type="button">▶️</button></div>
+                    <div><button type="button">🔒</button></div>
+                    <div><button type="button">🔓</button></div>
+                    <div><button type="button">🗑️</button></div>
+                  </div>
+                </details>
+              </section>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <aside>
+        <h6>Distribución</h6>
+        <label>
+          <span>Predeterminado</span>
+          <input type="radio" name="mode" value=""  checked>
+        </label>
+        <label>
+          <span>En línea</span>
+          <input type="radio" name="mode" value="inline">
+        </label>
+        <label>
+          <span>En bloque</span>
+          <input type="radio" name="mode" value="block">
+        </label>
+        <label>
+          <span>Flotante</span>
+          <input type="radio" name="mode" value="float">
+        </label>
+        <label>
+          <span>Simple</span>
+          <input type="radio" name="mode" value="simple">
+        </label>
+      </aside>
+      <form action="">
+        
+        <button-group>
+          <button>
+            <span>Cancelar</span>
           </button>
-          <button type="button">
-            <i>⭐</i>
-            <span>Favoritos</span>
-          </button>
-          <button type="button">
-            <i>⭐</i>
-            <span>Favoritos</span>
-          </button>
-          <button type="button">
-            <i>⭐</i>
-            <span>Favoritos</span>
-          </button>
-          <button type="button">
-            <i>⭐</i>
-            <span>Favoritos</span>
+          <button class="primary">
+            <i>💾</i>
+            <span>Guardar</span>
           </button>
         </button-group>
-      </section-default>
-      <section-item-selected>
-        <style>
-          section-item-selected {
-            display: flex;
-            display: none;
-            gap: 1rem;
-          }
-        </style>
-        <span>1 item seleccionado</span>
-        <section>
-          <button type="button">📝</button>
-          <button type="button">📂</button>
-          <button type="button">📁</button>
-          <button type="button">🗑️</button>
-        </section>
-      </section-item-selected>
-    </header-table>
+      
+        <details open>
+          <summary>General</summary>
+          <section>
+            <label>
+              <i>👤</i>
+              <span>Nombre</span>
+              <input type="text" name="name" required placeholder="Nombre(s)" value="Edgar">
+            </label>
+            
+            <fieldset>
+              <legend>Apellidos</legend>
+              <label>
+                <span>Primer apellido</span>
+                <input type="text" name="first_surname" required placeholder="">
+              </label>
+              <label>
+                <span>Segundo apellido</span>
+                <input type="text" name="sesond_surname" required placeholder="">
+              </label>
+            </fieldset>
 
-    <table>
-      <colgroup>
-        <col style="width: 14px">
-        <col>
-        <col>
-        <col>
-        <col>
-        <col>
-        <col>
-        <col>
-        <col>
-        <col>
-      </colgroup>
-      <thead>
-        <tr>
-          <th><input type="checkbox"></th>
-          <th><span>Icon</span></th>
-          <th>
-            <span>Nombre</span>
-            <button type="button">🔼</button>
-            <button type="button">🔽</button>
-            <button type="button">🔍</button>
-          </th>
-          <th><span>Descripción</span></th>
-          <th><span>Etiquetas</span></th>
-          <th><span>Fecha de creación</span></th>
-          <th><span>Fecha de edición</span></th>
-          <th><span>Usuario</span></th>
-          <th><span>Estatus</span></th>
-          <th><span>Actions</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="checkbox"></td>
-          <td>🖼️</td>
-          <td>Introducción a CSS</td>
-          <td>Sintax, Conceptos y Estructura de CSS</td>
-          <td>
-            <span>Frontend</span>
-            <span>Básico</span>
-            <span>Web</span>
-            <span>Programación</span>
-          </td>
-          <td>Fecha de creación</td>
-          <td>Fecha de edición</td>
-          <td>Usuario</td>
-          <td>Estatus</td>
-          <td>
-            <section>
-              <button type="button">🖋️</button>
-              <button type="button">⭐</button>
-              <button type="button">🏷️</button>
-              <details>
-                <summary>➕</summary>
-                <div>
-                  <div><button type="button">⏸️</button></div>
-                  <div><button type="button">▶️</button></div>
-                  <div><button type="button">🔒</button></div>
-                  <div><button type="button">🔓</button></div>
-                  <div><button type="button">🗑️</button></div>
-                </div>
-              </details>
-            </section>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <label>
+              <i>🚻</i>
+              <span>Sexo</span>
+              <select name="select">
+                <option value="">Seleccione una opción...</option>
+                <option>Hombre</option>
+                <option>Mujer</option>
+              </select>
+            </label>
+
+            <label>
+              <i>📅</i>
+              <span>Fecha de nacimiento</span>
+              <input type="date" required>
+            </label>
+
+            <label>
+              <i>🌐</i>
+              <span>País</span>
+              <input list="countries">
+              <datalist id="countries">
+                <option value="México">
+                <option value="Estados Unidos">
+                <option value="Canadá">
+                <option value="Brasil">
+                <option value="Argentina">
+                <option value="Colombia">
+                <option value="Chile">
+                <option value="Perú">
+                <option value="Ecuador">
+                <option value="Venezuela">
+                <option value="Bolivia">
+                <option value="Paraguay">
+                <option value="Uruguay">
+                <option value="Guatemala">
+                <option value="Honduras">
+                <option value="El Salvador">
+                <option value="Nicaragua">
+                <option value="Costa Rica">
+                <option value="Panamá">
+                <option value="Cuba">
+                <option value="República Dominicana">
+                <option value="Puerto Rico">
+                <option value="Haití">
+                <option value="Jamaica">
+                <option value="Trinidad y Tobago">
+                <option value="Barbados">
+                <option value="Bahamas">
+                <option value="Belice">
+                <option value="Guyana">
+                <option value="Surinam">
+                <option value="Guayana Francesa">
+              </datalist>
+            </label>
+
+            <label>
+              <i>📧</i>
+              <span>Correo electrónico</span>
+              <input type="email" required>
+            </label>
+          </section>
+        </details>
+
+        <!-- USUARIO -->
+        <details open>
+          <summary>Usuario</summary>
+          <label>
+            <i>👤</i>
+            <span>Usuario</span>
+            <input type="text" name="user" required placeholder="Usuario">
+          </label>
+
+          <label>
+            <i>🔑</i>
+            <span>Contraseña</span>
+            <input type="password" name="password" required placeholder="Contraseña">
+          </label>
+
+          <label>
+            <i>🔑</i>
+            <span>Confirmar contraseña</span>
+            <input type="password" name="password" required placeholder="Contraseña">
+          </label>
+
+          <label>
+            <i>🔒</i>
+            <span>Alias</span>
+            <small>
+              Nombre con el que se te conocera se desbloquea en el <a href="">nivel 5</a>
+            </small>
+            <input type="text" name="alias" required placeholder="Alias">
+          </label>
+        </details>
+
+        <!-- AVATAR -->
+        <details open>
+          <summary>Avatar</summary>
+          <label>
+            <i>🖼️</i>
+            <span>Avatar</span>
+            <input type="file" name="avatar" required>
+          </label>
+
+          <label>
+            <span>Agregar variante</span>
+            <input type="checkbox">
+          </label>
+          
+          <fieldset class="block">
+            <legend>Modo oscuro</legend>
+            <label>
+              <i>🖼️</i>
+              <span>Publico</span>
+              <small>Este es tu avatar para todo el mundo.</small>
+              <input type="file" name="avatar" required>
+            </label>
+            <label>
+              <i>🖼️</i>
+              <span>Seguidoes</span>
+              <small>Este es tu avatar para tus seguidores.</small>
+              <input type="file" name="avatar" required>
+            </label>
+            <label>
+              <i>🖼️</i>
+              <span>Amigos</span>
+              <small>Este es tu avatar para tus amigos.</small>
+              <input type="file" name="avatar" required>
+            </label>
+          </fieldset>
+
+          <fieldset class="block">
+            <legend>Modo claro</legend>
+            <label>
+              <i>🖼️</i>
+              <span>Publico</span>
+              <small>Este es tu avatar para todo el mundo.</small>
+              <input type="file" name="avatar" required>
+            </label>
+            <label>
+              <i>🖼️</i>
+              <span>Seguidoes</span>
+              <small>Este es tu avatar para tus seguidores.</small>
+              <input type="file" name="avatar" required>
+            </label>
+            <label>
+              <i>🖼️</i>
+              <span>Amigos</span>
+              <small>Este es tu avatar para tus amigos.</small>
+              <input type="file" name="avatar" required>
+            </label>
+          </fieldset>
+        </details>
+
+        <!-- INVITADOS -->
+        <details open>
+          <summary>Invitados</summary>
+          <label>
+            <i>👋</i>
+            <span>Agregar invitados</span>
+            <small>Invita a tus amigos a unirse a la plataforma.</small>
+            <button class="primary" type="button">Agregar invitado</button>
+          </label>
+        </details>
+      </form>
+    </section>
   </main>
   <footer>
     footer
