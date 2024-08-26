@@ -244,18 +244,21 @@ section-default {
 }
 
 nav-breadcrumb {
-  ul {
-    display: flex;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  gap: calc(var(--gap) * 3);
+  width: min-content;
+  
+  a:not(:last-child) {
+    position: relative;
+    /* outline: 1px solid var(--border-color); */
 
-    li:not(:last-child) {
-      &:after {
-        margin-left: 0.5rem;
-        content: '>';
-      }
+    &:after {
+      position: absolute;
+      content: '>';
+      display: block;
+      left: calc(100% + (var(--gap) * 2));
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
