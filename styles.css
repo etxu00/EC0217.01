@@ -26,6 +26,19 @@ input {
   margin: 0;
 }
 
+label {
+  display: block;
+
+  i {
+    font-style: normal;
+  }
+}
+
+fieldset:not(.block) {
+  display: flex;
+  gap: var(--gap);
+}
+
 table {
   --color-primary: 0, 123, 255;
   --opacity-hover: 0.5;
@@ -324,6 +337,13 @@ button-group {
   }
 }
 
+dialog::backdrop {
+  background-color: rgba(128, 128, 128, .25);
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
 /* ASPECTOS */
 
 :is(button-group.min a, button-group.min button, button-group.min .btn, a.min, button.min, .btn.min) {
@@ -367,7 +387,8 @@ button-group {
     position: absolute;
     top: var(--top);
     transform: translate3d(-50%, 0, 0);
-  }  
+    width: max-content;
+  }
 }
 
 .compact {}
@@ -380,22 +401,226 @@ button-group {
 
 /* FIN: ANCLAS & BOTONES */
 
-
-
-/* INICIO: FORMULARIOS */
-
 label {
-  display: block;
-  padding: var(--padding);
+  color: white;
+
+  :is(button, input, select) {
+    outline: none;
+  }
+  
+  small {
+    opacity: 0.75;
+  }
 
   i {
-    font-style: normal;
+    text-align: center;
   }
 }
 
-fieldset:not(.block) {
-  display: flex;
-  gap: var(--gap);
+/* inline */
+section-form:has(input[value="inline"]:checked) form {
+  
+  label {
+    align-items: center;
+    column-gap: var(--gap);
+    display: grid;
+    grid-template-columns: minmax(2.5rem, auto) 200px 1fr;
+
+    &:has(small) {
+      grid-template-rows: auto auto;
+
+      :is(input, select, i) {
+        grid-row: 1 / 3;
+      }
+
+      small {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+    }
+    
+    :is(input, select) {
+      grid-column: 3 / 4;
+      border: 1px solid var(--border-color);
+    }
+
+    i {
+      grid-column: 1 / 2;
+    }
+
+    span {
+      grid-column: 2 / 3;
+    }
+  }
 }
 
+/* block */
+section-form:has(input[value="block"]:checked) form {
+  label {
+    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(2.5rem, auto) 1fr;
+    grid-template-rows: auto auto;
+    row-gap: var(--gap);
+
+    &:has(small) {
+      grid-template-rows: 15px 15px 15px;
+      
+      small {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+      }
+
+      span {
+        grid-row: 1 / 2;
+      }
+    }
+
+    :is(input, select) {
+      grid-column: 2 / 3;
+      grid-row: -1 / -2;
+    }
+
+    i {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+    }
+
+    span {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2
+    }
+  }
+}
+
+/* float */
+section-form:has(input[value="float"]:checked) form {
+  label {
+    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(2.5rem, auto) 1fr;
+    grid-template-rows: auto auto;
+
+    :is(input:not(:placeholder-shown),
+      input:focus,
+      select:focus,
+      select:has(option[value=""]:not(:checked))
+      ) {
+      padding: 16px 2.5rem 8px 2.5rem;
+    }
+
+    :is(&:has(input:focus),
+      &:has(input:not(:placeholder-shown)),
+      &:has(select:focus),
+      &:has(select:focus),
+      &:has(option[value=""]:not(:checked))
+      ) {
+
+      span {
+        transform: translate3d(2.5rem, -10px, 0) scale(0.75);
+      }
+    }
+
+    :is(input:not(:focus), select:not(:focus)) {
+      padding: 12px 2.5rem;
+    }
+
+    :is(input, select, span) {
+      background-color: transparent;
+      grid-column: 1 / -1;
+      grid-row: 1 / 2 ;
+    }
+
+    :is(i, span) {
+      z-index: 1;
+    }
+
+    i {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    small {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+
+    span {
+      letter-spacing: .3px;
+      transform-origin: 0 0;
+      transform: translate3d(32px, 0px, 0);
+    }
+  }
+}
+
+/* simple */
+section-form:has(input[value="simple"]:checked) form {
+  
+  label {
+    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(2.5rem, auto) auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--gap);
+
+    i {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    input, select {
+      field-sizing: content;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    small {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+
+    span {
+      grid-column: 3 / -1;
+      grid-row: 1 / 2;
+
+      &:before {
+        content: '·';
+        margin-right: var(--gap);
+      }
+    }
+  }
+}
+
+/* INICIO: FORMULARIOS */
 /* FIN: FORMULARIOS */
+
+
+fieldset[data-mode="icon"] {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  padding: var(--padding-table);
+  width: max-content;
+  position: relative;
+
+  &:not(:hover) {
+    label:has(input:not(:checked)) {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  label {
+    width: max-content;
+
+    &:has(input:checked) {
+      color: var(--color-primary);
+      background-color: var(--color-primary);
+    }
+  }
+
+  input,
+  legend {
+    display: none;
+  }
+}

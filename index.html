@@ -70,7 +70,7 @@
     </ul>
   </nav>
   <main>
-    <section hidden>
+    <section>
       <header-table>
         <tabs-section>
           <a href="#" class="on">Pestaña 1</a>
@@ -107,9 +107,9 @@
               <i>⭐</i>
               <span>Favoritos</span>
             </button>
-            <button type="button">
+            <button class="primary" type="button" id="button_new">
               <i>⭐</i>
-              <span>Favoritos</span>
+              <span>Nuevo</span>
             </button>
           </button-group>
         </section-default>
@@ -200,228 +200,248 @@
         </tbody>
       </table>
     </section>
-    <section>
-      <aside>
-        <h6>Distribución</h6>
-        <label>
-          <span>Predeterminado</span>
-          <input type="radio" name="mode" value=""  checked>
-        </label>
-        <label>
-          <span>En línea</span>
-          <input type="radio" name="mode" value="inline">
-        </label>
-        <label>
-          <span>En bloque</span>
-          <input type="radio" name="mode" value="block">
-        </label>
-        <label>
-          <span>Flotante</span>
-          <input type="radio" name="mode" value="float">
-        </label>
-        <label>
-          <span>Simple</span>
-          <input type="radio" name="mode" value="simple">
-        </label>
-      </aside>
-      <form action="">
-        
-        <button-group>
-          <button>
-            <span>Cancelar</span>
-          </button>
-          <button class="primary">
-            <i>💾</i>
-            <span>Guardar</span>
-          </button>
-        </button-group>
-      
-        <details open>
-          <summary>General</summary>
-          <section>
+    <section-form>
+      <dialog>
+        <aside>
+          <fieldset data-mode="icon">
+            <legend>Aspecto</legend>
+            <label>
+              <span class="btn min">
+                <i>✖️</i>
+                <span>Predeterminado</span>
+              </span>
+              <input type="radio" name="mode" value="" >
+            </label>
+            <label>
+              <span class="btn min">
+                <i>➖</i>
+                <span>En línea</span>
+              </span>
+              <input type="radio" name="mode" value="inline">
+            </label>
+            <label>
+              <span class="btn min">
+                <i>🟰</i>
+                <span>En bloque</span>
+              </span>
+              <input type="radio" name="mode" value="block">
+            </label>
+            <label>
+              <span class="btn min">
+                <i>🔝</i>
+                <span>Flotante</span>
+              </span>
+              <input type="radio" name="mode" value="float">
+            </label>
+            <label>
+              <span class="btn min">
+                <i>🔜</i>
+                <span>Simple</span>
+              </span>
+              <input type="radio" name="mode" value="simple" checked>
+            </label>
+          </fieldset>
+        </aside>
+        <form action="">
+  
+          <button-group>
+            <button id="btn_close_dialog">
+              <span>Cancelar</span>
+            </button>
+            <button class="primary">
+              <i>💾</i>
+              <span>Guardar</span>
+            </button>
+          </button-group>
+  
+          <details open>
+            <summary>General</summary>
+            <section>
+              <label>
+                <i>👤</i>
+                <span>Nombre(s)</span>
+                <small>Escribe solo los nombres para continuar con el procedimiento</small>
+                <input type="text" name="name" required placeholder="Nombre(s)" value="">
+              </label>
+              
+              <fieldset>
+                <legend>Apellidos</legend>
+                <label>
+                  <span>Primer apellido</span>
+                  <input type="text" name="first_surname" required placeholder=" ">
+                </label>
+                <label>
+                  <span>Segundo apellido</span>
+                  <input type="text" name="sesond_surname" required placeholder=" ">
+                </label>
+              </fieldset>
+  
+              <label>
+                <i>🚻</i>
+                <span>Sexo</span>
+                <select name="select">
+                  <option value="">Seleccione una opción...</option>
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                </select>
+              </label>
+  
+              <label>
+                <i>📅</i>
+                <span>Fecha de nacimiento</span>
+                <input type="date" required>
+              </label>
+  
+              <label>
+                <i>🌐</i>
+                <span>País</span>
+                <input list="countries" placeholder="">
+                <datalist id="countries">
+                  <option value="México">
+                  <option value="Estados Unidos">
+                  <option value="Canadá">
+                  <option value="Brasil">
+                  <option value="Argentina">
+                  <option value="Colombia">
+                  <option value="Chile">
+                  <option value="Perú">
+                  <option value="Ecuador">
+                  <option value="Venezuela">
+                  <option value="Bolivia">
+                  <option value="Paraguay">
+                  <option value="Uruguay">
+                  <option value="Guatemala">
+                  <option value="Honduras">
+                  <option value="El Salvador">
+                  <option value="Nicaragua">
+                  <option value="Costa Rica">
+                  <option value="Panamá">
+                  <option value="Cuba">
+                  <option value="República Dominicana">
+                  <option value="Puerto Rico">
+                  <option value="Haití">
+                  <option value="Jamaica">
+                  <option value="Trinidad y Tobago">
+                  <option value="Barbados">
+                  <option value="Bahamas">
+                  <option value="Belice">
+                  <option value="Guyana">
+                  <option value="Surinam">
+                  <option value="Guayana Francesa">
+                </datalist>
+              </label>
+  
+              <label>
+                <i>📧</i>
+                <span>Correo electrónico</span>
+                <input type="email" placeholder="" required>
+              </label>
+            </section>
+          </details>
+  
+          <!-- USUARIO -->
+          <details open>
+            <summary>Usuario</summary>
             <label>
               <i>👤</i>
-              <span>Nombre</span>
-              <input type="text" name="name" required placeholder="Nombre(s)" value="Edgar">
+              <span>Usuario</span>
+              <input type="text" name="user" required placeholder="Usuario">
+            </label>
+  
+            <label>
+              <i>🔑</i>
+              <span>Contraseña</span>
+              <input type="password" name="password" required placeholder="Contraseña">
+            </label>
+  
+            <label>
+              <i>🔑</i>
+              <span>Confirmar contraseña</span>
+              <input type="password" name="password" required placeholder="Contraseña">
+            </label>
+  
+            <label>
+              <i>🔒</i>
+              <span>Alias</span>
+              <small>
+                Nombre con el que se te conocera se desbloquea en el <a href="">nivel 5</a>
+              </small>
+              <input type="text" name="alias" required placeholder="Alias">
+            </label>
+          </details>
+  
+          <!-- AVATAR -->
+          <details open>
+            <summary>Avatar</summary>
+            <label>
+              <i>🖼️</i>
+              <span>Avatar</span>
+              <input type="file" name="avatar" required>
+            </label>
+  
+            <label>
+              <span>Agregar variante</span>
+              <input type="checkbox">
             </label>
             
-            <fieldset>
-              <legend>Apellidos</legend>
+            <fieldset class="block">
+              <legend>Modo oscuro</legend>
               <label>
-                <span>Primer apellido</span>
-                <input type="text" name="first_surname" required placeholder="">
+                <i>🖼️</i>
+                <span>Publico</span>
+                <small>Este es tu avatar para todo el mundo.</small>
+                <input type="file" name="avatar" required>
               </label>
               <label>
-                <span>Segundo apellido</span>
-                <input type="text" name="sesond_surname" required placeholder="">
+                <i>🖼️</i>
+                <span>Seguidoes</span>
+                <small>Este es tu avatar para tus seguidores.</small>
+                <input type="file" name="avatar" required>
+              </label>
+              <label>
+                <i>🖼️</i>
+                <span>Amigos</span>
+                <small>Este es tu avatar para tus amigos.</small>
+                <input type="file" name="avatar" required>
               </label>
             </fieldset>
-
+  
+            <fieldset class="block">
+              <legend>Modo claro</legend>
+              <label>
+                <i>🖼️</i>
+                <span>Publico</span>
+                <small>Este es tu avatar para todo el mundo.</small>
+                <input type="file" name="avatar" required>
+              </label>
+              <label>
+                <i>🖼️</i>
+                <span>Seguidoes</span>
+                <small>Este es tu avatar para tus seguidores.</small>
+                <input type="file" name="avatar" required>
+              </label>
+              <label>
+                <i>🖼️</i>
+                <span>Amigos</span>
+                <small>Este es tu avatar para tus amigos.</small>
+                <input type="file" name="avatar" required>
+              </label>
+            </fieldset>
+          </details>
+  
+          <!-- INVITADOS -->
+          <details open>
+            <summary>Invitados</summary>
             <label>
-              <i>🚻</i>
-              <span>Sexo</span>
-              <select name="select">
-                <option value="">Seleccione una opción...</option>
-                <option>Hombre</option>
-                <option>Mujer</option>
-              </select>
+              <i>👋</i>
+              <span>Agregar invitados</span>
+              <small>Invita a tus amigos a unirse a la plataforma.</small>
+              <button class="primary" type="button">Agregar invitado</button>
             </label>
-
-            <label>
-              <i>📅</i>
-              <span>Fecha de nacimiento</span>
-              <input type="date" required>
-            </label>
-
-            <label>
-              <i>🌐</i>
-              <span>País</span>
-              <input list="countries">
-              <datalist id="countries">
-                <option value="México">
-                <option value="Estados Unidos">
-                <option value="Canadá">
-                <option value="Brasil">
-                <option value="Argentina">
-                <option value="Colombia">
-                <option value="Chile">
-                <option value="Perú">
-                <option value="Ecuador">
-                <option value="Venezuela">
-                <option value="Bolivia">
-                <option value="Paraguay">
-                <option value="Uruguay">
-                <option value="Guatemala">
-                <option value="Honduras">
-                <option value="El Salvador">
-                <option value="Nicaragua">
-                <option value="Costa Rica">
-                <option value="Panamá">
-                <option value="Cuba">
-                <option value="República Dominicana">
-                <option value="Puerto Rico">
-                <option value="Haití">
-                <option value="Jamaica">
-                <option value="Trinidad y Tobago">
-                <option value="Barbados">
-                <option value="Bahamas">
-                <option value="Belice">
-                <option value="Guyana">
-                <option value="Surinam">
-                <option value="Guayana Francesa">
-              </datalist>
-            </label>
-
-            <label>
-              <i>📧</i>
-              <span>Correo electrónico</span>
-              <input type="email" required>
-            </label>
-          </section>
-        </details>
-
-        <!-- USUARIO -->
-        <details open>
-          <summary>Usuario</summary>
-          <label>
-            <i>👤</i>
-            <span>Usuario</span>
-            <input type="text" name="user" required placeholder="Usuario">
-          </label>
-
-          <label>
-            <i>🔑</i>
-            <span>Contraseña</span>
-            <input type="password" name="password" required placeholder="Contraseña">
-          </label>
-
-          <label>
-            <i>🔑</i>
-            <span>Confirmar contraseña</span>
-            <input type="password" name="password" required placeholder="Contraseña">
-          </label>
-
-          <label>
-            <i>🔒</i>
-            <span>Alias</span>
-            <small>
-              Nombre con el que se te conocera se desbloquea en el <a href="">nivel 5</a>
-            </small>
-            <input type="text" name="alias" required placeholder="Alias">
-          </label>
-        </details>
-
-        <!-- AVATAR -->
-        <details open>
-          <summary>Avatar</summary>
-          <label>
-            <i>🖼️</i>
-            <span>Avatar</span>
-            <input type="file" name="avatar" required>
-          </label>
-
-          <label>
-            <span>Agregar variante</span>
-            <input type="checkbox">
-          </label>
-          
-          <fieldset class="block">
-            <legend>Modo oscuro</legend>
-            <label>
-              <i>🖼️</i>
-              <span>Publico</span>
-              <small>Este es tu avatar para todo el mundo.</small>
-              <input type="file" name="avatar" required>
-            </label>
-            <label>
-              <i>🖼️</i>
-              <span>Seguidoes</span>
-              <small>Este es tu avatar para tus seguidores.</small>
-              <input type="file" name="avatar" required>
-            </label>
-            <label>
-              <i>🖼️</i>
-              <span>Amigos</span>
-              <small>Este es tu avatar para tus amigos.</small>
-              <input type="file" name="avatar" required>
-            </label>
-          </fieldset>
-
-          <fieldset class="block">
-            <legend>Modo claro</legend>
-            <label>
-              <i>🖼️</i>
-              <span>Publico</span>
-              <small>Este es tu avatar para todo el mundo.</small>
-              <input type="file" name="avatar" required>
-            </label>
-            <label>
-              <i>🖼️</i>
-              <span>Seguidoes</span>
-              <small>Este es tu avatar para tus seguidores.</small>
-              <input type="file" name="avatar" required>
-            </label>
-            <label>
-              <i>🖼️</i>
-              <span>Amigos</span>
-              <small>Este es tu avatar para tus amigos.</small>
-              <input type="file" name="avatar" required>
-            </label>
-          </fieldset>
-        </details>
-
-        <!-- INVITADOS -->
-        <details open>
-          <summary>Invitados</summary>
-          <label>
-            <i>👋</i>
-            <span>Agregar invitados</span>
-            <small>Invita a tus amigos a unirse a la plataforma.</small>
-            <button class="primary" type="button">Agregar invitado</button>
-          </label>
-        </details>
-      </form>
-    </section>
+          </details>
+        </form>
+      </dialog>
+    </section-form>
   </main>
   <footer>
     footer
@@ -495,10 +515,12 @@
     </form>
   </aside>
   <script>
+    let openDialog = false;
     const duplicateTR = (tr) => {
       const clone = tr.cloneNode(true);
       tr.after(clone);
     }
+
     const generateTR = (totalRows) => {
       const tbody = document.querySelector('tbody');
       const tr = tbody.querySelector('tr');
@@ -508,12 +530,42 @@
     }
     generateTR(25);
 
-    const $selectSpacing = document.querySelector('#select_spacing');
-    const $html= document.querySelector('html');
+    function $(selector) {
+      return document.querySelector(selector);
+    }
+
+    function $$(selector) {
+      return document.querySelectorAll(selector);
+    }
+
+    const $selectSpacing = $('#select_spacing');
+    const $html = $('html');
+    const $btn = $('#button_new');
+    const $btnCloseDialog = $('#btn_close_dialog');
+    const dialog = $('dialog');
+
     $selectSpacing.addEventListener('change', (event) => {
       const value = event.target.value;
       $html.attributes.removeNamedItem('class');
       $html.classList.add('spacing-' + value);
+    });
+
+    $btn.addEventListener('click', () => {
+      openDialog = !openDialog;
+      dialog.showModal()
+    });
+    $btnCloseDialog.addEventListener('click', () => {
+      openDialog = !openDialog;
+      dialog.close();
+    });
+
+    const keyEsc = 27;
+
+    document.addEventListener('keydown', (event) => {
+      if (event.keyCode === keyEsc && openDialog) {
+        openDialog = !openDialog;
+        dialog.close();
+      }
     });
   </script>
 </body>
