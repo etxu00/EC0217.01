@@ -478,30 +478,40 @@
   <aside>
     <resize-parent data-rezise-to="left"></resize-parent>
     <form>
-      <fieldset data-mode="icon">
-        <legend>Aspecto</legend>
-        <label>
-          <span class="btn min">
-            <i>💻</i>
-            <span>Sistema</span>
-          </span>
-          <input type="radio" name="mode" value="system">
-        </label>
-        <label>
-          <span class="btn min">
-            <i>☀️</i>
-            <span>Light</span>
-          </span>
-          <input type="radio" name="mode" value="light">
-        </label>
-        <label>
-          <span class="btn min">
-            <i>🌙</i>
-            <span>Oscuro</span>
-          </span>
-          <input type="radio" name="mode" value="dark">
-        </label>
-      </fieldset>
+      <details open>
+        <summary>Tema</summary>
+        <fieldset data-mode="icon">
+          <legend>Aspecto</legend>
+          <label>
+            <span class="btn min">
+              <i>💻</i>
+              <span>Sistema</span>
+            </span>
+            <input type="radio" name="mode" value="system" checked>
+          </label>
+          <label>
+            <span class="btn min">
+              <i>☀️</i>
+              <span>Claro</span>
+            </span>
+            <input type="radio" name="mode" value="light">
+          </label>
+          <label>
+            <span class="btn min">
+              <i>🌙</i>
+              <span>Oscuro</span>
+            </span>
+            <input type="radio" name="mode" value="dark">
+          </label>
+          <label>
+            <span class="btn min">
+              <i>⏲️</i>
+              <span>Programar</span>
+            </span>
+            <input type="radio" name="mode" value="dark">
+          </label>
+        </fieldset>
+      </details>
       <details open>
         <summary>
           <span>Información</span>

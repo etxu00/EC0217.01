@@ -1,3 +1,28 @@
+:root {
+  --background-color: #fafafa;
+  --color: #212121;
+  --background-buttons: rgba(128, 128, 128, .25);
+  --border-color: #ccc;
+  --color-primary: #007bff;
+  --font: system-ui, sans-serif;
+  --padding: 0;
+  --size: 16px;
+}
+
+/* Tema oscuro */
+@media (prefers-color-scheme: dark) {
+  :root:has(input[value="light"]:not(:checked)) {
+    --background-color: #212121;
+    --color: #fafafa;
+  }
+}
+
+body:has(input[value="dark"]:checked) {
+  --background-color: #212121;
+  --color: #fafafa;
+}
+
+
 /* INICIO: GENERAL */
 * {
   box-sizing: border-box;
@@ -12,6 +37,9 @@ a {
 body {
   margin: 0;
   min-height: 100vh;
+  /* DISEÑO */
+  background-color: var(--background-color);
+  color: var(--color);
 }
 
 html {
@@ -21,22 +49,22 @@ html {
   font-size: var(--size);
 }
 
+dialog {
+  background-color: var(--background-color);
+  color: inherit;
+}
 
 label {
   display: block;
-  
-  input {
-    margin: 0;
+
+  :is(select, input) {
+    background-color: inherit;
+    color: inherit;
   }
 
   i {
     font-style: normal;
   }
-}
-
-fieldset:not(.block) {
-  display: flex;
-  gap: var(--gap);
 }
 
 table {
@@ -147,25 +175,6 @@ table {
 }
 
 /* FIN: GENERAL */
-
-/* INICIO: DENSIDAD*/
-:root {
-  --border-color: #ccc;
-  --color-primary: #007bff;
-  --font: system-ui, sans-serif;
-  --padding: 0;
-  --size: 16px;
-  --color: black;
-}
-
-/* Tema oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color: white
-  }
-}
-
-/* FIN: DENSIDAD*/
 
 /* INCIO: LAYOUT */
 body {
@@ -278,9 +287,6 @@ nav-breadcrumb {
 
 /* INICIO: ANCLAS & BOTONES */
 
-:root {
-  --background-buttons: rgba(128, 128, 128, .25);
-}
 
 button-group {
   border-left: 1px solid var(--border-color);
@@ -402,7 +408,6 @@ dialog::backdrop {
 /* FIN: ANCLAS & BOTONES */
 
 label {
-  color: white;
 
   :is(button, input, select) {
     outline: none;
