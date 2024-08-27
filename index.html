@@ -34,6 +34,34 @@
         }
       }
     }
+    section-item-selected {
+      display: flex;
+      display: none;
+      gap: 1rem;
+    }
+    aside {
+      position: relative;
+    }
+
+    resize-parent {
+      background-color: royalblue;
+      border-radius: 1rem;
+      cursor: ew-resize;
+      height: 100%;
+      left: -0.25rem;
+      max-height: 100vh;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform-origin: center center;
+      transform-style: .5s;
+      width: 0.5rem;
+
+      &:hover {
+        opacity: 1;
+        width: .75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -86,7 +114,15 @@
             <a href="#"><span>Materias</span></a>
           </nav-breadcrumb>
           <label>
-            <i>🔍</i>
+            <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                <path d="M21 21l-6 -6" />
+              </svg>
+            </i>
             <span>Buscar</span>
             <input type="search" placeholder="Buscar...">
           </label>
@@ -114,13 +150,6 @@
           </button-group>
         </section-default>
         <section-item-selected>
-          <style>
-            section-item-selected {
-              display: flex;
-              display: none;
-              gap: 1rem;
-            }
-          </style>
           <span>1 item seleccionado</span>
           <section>
             <button type="button">📝</button>
@@ -447,34 +476,32 @@
     footer
   </footer>
   <aside>
-    <resize-parent data-rezise-to="left">
-      <style>
-        aside {
-          position: relative;
-        }
-
-        resize-parent {
-          background-color: royalblue;
-          border-radius: 1rem;
-          cursor: ew-resize;
-          height: 100%;
-          left: -0.25rem;
-          max-height: 100vh;
-          opacity: 0;
-          position: absolute;
-          top: 0;
-          transform-origin: center center;
-          transform-style: .5s;
-          width: 0.5rem;
-
-          &:hover {
-            opacity: 1;
-            width: .75rem;
-          }
-        }
-      </style>
-    </resize-parent>
+    <resize-parent data-rezise-to="left"></resize-parent>
     <form>
+      <fieldset data-mode="icon">
+        <legend>Aspecto</legend>
+        <label>
+          <span class="btn min">
+            <i>💻</i>
+            <span>Sistema</span>
+          </span>
+          <input type="radio" name="mode" value="system">
+        </label>
+        <label>
+          <span class="btn min">
+            <i>☀️</i>
+            <span>Light</span>
+          </span>
+          <input type="radio" name="mode" value="light">
+        </label>
+        <label>
+          <span class="btn min">
+            <i>🌙</i>
+            <span>Oscuro</span>
+          </span>
+          <input type="radio" name="mode" value="dark">
+        </label>
+      </fieldset>
       <details open>
         <summary>
           <span>Información</span>
