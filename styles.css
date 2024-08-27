@@ -1,8 +1,9 @@
 :root {
   --background-color: #fafafa;
   --color: #212121;
+  --button-color: #fafafa;
   --background-buttons: rgba(128, 128, 128, .25);
-  --border-color: #ccc;
+  --border-color: #fafafa;
   --color-primary: #007bff;
   --font: system-ui, sans-serif;
   --padding: 0;
@@ -64,6 +65,15 @@ label {
 
   i {
     font-style: normal;
+  }
+
+  select {
+    /* Cambia el fondo de los options al hacer click*/
+    appearance: none;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: var(--padding);
+    width: 100%;
   }
 }
 
@@ -155,12 +165,14 @@ table {
 
   th,
   td {
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: var(--padding-table);
     border: none;
     
+    &:not(:last-child) {
+      overflow: hidden;
+    }
   }
 
   td:not(:last-child),
@@ -258,11 +270,7 @@ section-default {
   align-items: center;
   display: grid;
   grid-template-columns: 1fr auto auto;
-  gap: 4px;
-
-  details {
-    display: none;
-  }
+  gap: var(--gap);
 }
 
 nav-breadcrumb {
@@ -272,7 +280,6 @@ nav-breadcrumb {
   
   a:not(:last-child) {
     position: relative;
-    /* outline: 1px solid var(--border-color); */
 
     &:after {
       position: absolute;
@@ -321,6 +328,10 @@ button-group {
   outline: none;
   padding: var(--padding);
 
+  &:not(.primary) {
+    color: var(--color);
+  }
+
   &:active {
     color: var(--color-primary);
   }
@@ -339,7 +350,11 @@ button-group {
 
   &.primary {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--button-color);
+
+    svg {
+      stroke: var(--button-color);
+    }
   }
 }
 
@@ -621,6 +636,10 @@ fieldset[data-mode="icon"] {
     &:has(input:checked) {
       color: var(--color-primary);
       background-color: var(--color-primary);
+
+      svg {
+        stroke: var(--button-color);
+      }
     }
   }
 
@@ -629,3 +648,71 @@ fieldset[data-mode="icon"] {
     display: none;
   }
 }
+
+
+/* INICIO: DISEÑO */
+
+/* Eimina el ▽ por defecto de detaails*/
+
+button-group {
+  display: flex;
+  align-items: center;
+
+  summary {
+    cursor: pointer;
+    display: flex;
+    gap: var(--gap);
+    padding: var(--padding);
+    position: relative;
+    width: max-content;
+  }
+}
+
+:is(button-group, table) {
+  details {
+    summary {
+      list-style: none;
+    }
+  }
+}
+
+svg {
+  --amplifier: 0.5;
+  --size-svg: calc(var(--size) + (var(--size) * var(--amplifier)));
+
+  height: var(--size-svg);
+  stroke: var(--color);
+  width: var(--size-svg);
+}
+
+table thead th {
+  &:not(:hover) button {
+    display: none;
+  }
+
+  button {
+    padding: 0 !important;
+  }
+}
+
+tbody td:last-child {
+  details {
+
+    summary {
+      & + div {
+        background-color: var(--background-color);
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      div {
+        display: block;
+      }
+    }
+    
+  }
+}
+/* FIN: DISEÑO */
