@@ -1,10 +1,12 @@
 :root {
-  --background-color: #fafafa;
-  --color: #212121;
-  --button-color: #fafafa;
   --background-buttons: rgba(128, 128, 128, .25);
+  --background-card-color: rgb(255 255 255);
+  --background-color-tmp: #212121;
+  --background-color: rgb(226 229 235);
   --border-color: #fafafa;
-  --color-primary: #007bff;
+  --button-color: #fafafa;
+  --color-primary: rgb(0 113 255);
+  --color: #212121;
   --font: system-ui, sans-serif;
   --padding: 0;
   --size: 16px;
@@ -13,13 +15,19 @@
 /* Tema oscuro */
 @media (prefers-color-scheme: dark) {
   :root:has(input[value="light"]:not(:checked)) {
-    --background-color: #212121;
+    --background-buttons: rgb(35 40 50);
+    --background-card-color: rgb(50 55 65);
+    --background-color: rgb(27 33 39);
+    --background-color-tmp: #fafafa;
     --color: #fafafa;
   }
 }
 
 body:has(input[value="dark"]:checked) {
-  --background-color: #212121;
+  --background-buttons: rgb(35 40 50);
+  --background-card-color: rgb(50 55 65);
+  --background-color: rgb(27 33 39);
+  --background-color-tmp: #fafafa;
   --color: #fafafa;
 }
 
@@ -38,9 +46,6 @@ a {
 body {
   margin: 0;
   min-height: 100vh;
-  /* DISEÑO */
-  background-color: var(--background-color);
-  color: var(--color);
 }
 
 html {
@@ -52,7 +57,10 @@ html {
 
 dialog {
   background-color: var(--background-color);
+  border: none;
   color: inherit;
+  &:backdrop {
+  }
 }
 
 label {
@@ -293,13 +301,6 @@ nav-breadcrumb {
 }
 
 /* INICIO: ANCLAS & BOTONES */
-
-
-button-group {
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-}
-
 :is(a[data-notification], button[data-notification], .btn[data-notification]) {
   position: relative;
 
@@ -318,7 +319,7 @@ button-group {
   }
 }
 
-:is(a, button, .btn) {
+:is(a, button, summary, .btn) {
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
@@ -356,13 +357,6 @@ button-group {
       stroke: var(--button-color);
     }
   }
-}
-
-dialog::backdrop {
-  background-color: rgba(128, 128, 128, .25);
-  width: 100vw;
-  height: 100vh;
-  z-index: 2;
 }
 
 /* ASPECTOS */
@@ -676,14 +670,20 @@ button-group {
   }
 }
 
-svg {
+
+:root {
   --amplifier: 0.5;
   --size-svg: calc(var(--size) + (var(--size) * var(--amplifier)));
-
-  height: var(--size-svg);
-  stroke: var(--color);
-  width: var(--size-svg);
 }
+
+:is(a, button, summary, .btn, body) {
+  svg {
+    height: var(--size-svg);
+    stroke: var(--color);
+    width: var(--size-svg);
+  }
+}
+
 
 table thead th {
   &:not(:hover) button {
@@ -716,3 +716,144 @@ tbody td:last-child {
   }
 }
 /* FIN: DISEÑO */
+
+
+:is(.navigation-bar button-group, .navigation-bar) {
+  display: flex;
+  flex-direction: column;
+
+  :is(a, button, summary, .btn) {
+    width: 100%;
+  }
+
+  details {
+    button-group {
+      :is(a, button, summary, .btn) {
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+
+
+/* DISEÑO */
+
+/* TEMA OSCURO */
+
+body {
+  /* DISEÑO */
+  background-color: var(--background-color);
+  color: var(--color);
+  /* clip-path: circle(0% at 50% 50%); */
+
+  &:after {
+    background-color: var(--background-color);
+    border-radius: 50%;
+    content: '';
+    height: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform-origin: center center;
+    transform: translate3d(50%, -50%, 0);
+    width: 0;
+    z-index: -1;
+  }
+
+  &:before {
+    background: var(--background-color-tmp);
+    content: "";
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: -2;
+  }
+
+  &:has(input[value="light"]:checked) {
+    animation: dark_light 2s linear;
+
+    &:after {
+      animation: resize 1s linear forwards;
+    }
+  }
+
+  &:has(input[value="dark"]:checked) {
+    animation: dark_light2 2s linear;
+
+    &:after {
+      animation: resize2 1s linear forwards;
+    }
+  }
+}
+
+@keyframes dark_light {
+  0%, 49% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: var(--background-color);
+  }
+}
+
+@keyframes dark_light2 {
+  0%, 49% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: var(--background-color);
+  }
+}
+
+@keyframes resize {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  100% {
+    height: 250vw;
+    width: 250vw;
+  }
+}
+
+@keyframes resize2 {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  100% {
+    height: 250vw;
+    width: 250vw;
+  }
+}
+
+/* FORM FLOAT */
+
+label {
+  background-color: rgb(42 47 57);
+  border: 1px solid var(--color-primary);
+  margin-bottom: 1rem;
+
+  &:has(:is(input:focus, select:focus)) {
+    background-color: rgb(36 40 50);
+
+    span {
+      color: var(--color-primary);
+    }
+  }
+
+  :is(input, select) {
+    border: none;
+  }
+}
+
+dialog {
+  details {
+    background-color: var(--background-card-color);
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+}

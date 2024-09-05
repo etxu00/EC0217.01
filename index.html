@@ -62,42 +62,145 @@
         width: .75rem;
       }
     }
+
+    .logotipo {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        width: 100%;
+        color: var(--color-primary);
+        
+        svg {
+          height: 28px;
+          width: 28px;
+          stroke: var(--color-primary);
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+
+        span {
+          font-size: 1.75rem;
+          color: white !important;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          text-shadow: 0 0 3px var(--color-primary),
+                        0 0 5px var(--color-primary),
+                        0 0 7px var(--color-primary);
+        }
+      }
   </style>
 </head>
 <body>
   <header>
-    header
+    <a href="/" class="logotipo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-cube">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M21 16.008v-8.018a1.98 1.98 0 0 0 -1 -1.717l-7 -4.008a2.016 2.016 0 0 0 -2 0l-7 4.008c-.619 .355 -1 1.01 -1 1.718v8.018c0 .709 .381 1.363 1 1.717l7 4.008a2.016 2.016 0 0 0 2 0l7 -4.008c.619 -.355 1 -1.01 1 -1.718z" />
+        <path d="M12 22v-10" />
+        <path d="M12 12l8.73 -5.04" />
+        <path d="M3.27 6.96l8.73 5.04" />
+      </svg>
+      <span>CUBO 360</span>
+    </a>
   </header>
-  <nav>
-    <ul>
-      <li><a href="#"><icon-custom>🏠</icon-custom><span>Inicio</span></a></li>
-      <li>
-        <a href="#" data-notification="+99">
-          <i>📄</i>
+  <nav class="navigation-bar">
+    <a href="#" target="_blank">
+      <i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+          <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+        </svg>
+      </i>
+      <span>Inicio</span>
+    </a>
+    <a href="#" target="_blank">
+      <i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+          <path d="M9 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+          <path d="M15 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+          <path d="M4 20h14" />
+        </svg>
+      </i>
+      <span>Dashboard</span>
+    </a>
+    <a href="#" target="_blank">
+      <i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+        </svg>
+      </i>
+      <span>Configuración</span>
+    </a>
+    <details>
+      <summary>
+        <i>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
+            <path d="M9 3l-6 6" />
+            <path d="M14 3l-7 7" />
+            <path d="M19 3l-7 7" />
+            <path d="M21 6l-4 4" />
+            <path d="M3 10h18" />
+            <path d="M10 10v11" />
+          </svg>
+        </i>
+        <span>Mis cursos</span>
+      </summary>
+      <button-group>
+        <a href="#" target="_blank">
+          <i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+          </i>
+          <span>Alumnos</span>
+        </a>
+        <a href="#" target="_blank">
+          <i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+              <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+            </svg>
+          </i>
           <span>Cursos</span>
         </a>
-        <ul>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Cursos</span></a></li>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Materias</span></a></li>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Unidades</span></a></li>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Temas</span></a></li>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Actividades</span></a></li>
-          <li><a href="#"><icon-custom>📋</icon-custom><span>Evaluaciones</span></a></li>
-        </ul>
-      </li>
-      <li><a href="#"><icon-custom>📋</icon-custom><span>Encuentas</span></a></li>
-      <li><a href="#"><icon-custom>🧑‍🎓</icon-custom><span>Alumnos</span></a></li>
-      <li>
-        <a><icon-custom>⚙️</icon-custom><span>Configuración</span></a>
-        <ul>
-          <li><a href="#"><icon-custom>🖋️</icon-custom><span>Roles</span></a></li>
-          <li><a href="#"><icon-custom>✅</icon-custom><span>Permisos</span></a></li>
-          <li><a href="#"><icon-custom>👤</icon-custom><span>Usuarios</span></a></li>
-        </ul>
-      </li>
-    </ul>
+        <a href="#" target="_blank">
+          <i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 6l11 0" />
+              <path d="M9 12l11 0" />
+              <path d="M9 18l11 0" />
+              <path d="M5 6l0 .01" />
+              <path d="M5 12l0 .01" />
+              <path d="M5 18l0 .01" />
+            </svg>
+          </i>
+          <span>Temas</span>
+        </a>
+      </button-group>
+    </details>
   </nav>
-  <main>
+  <main >
     <section>
       <header-table>
         <tabs-section>
@@ -632,7 +735,7 @@
                 </i>
                 <span>Flotante</span>
               </span>
-              <input type="radio" name="mode" value="float">
+              <input type="radio" name="mode" value="float" checked>
             </label>
             <label>
               <span class="btn min">
@@ -654,7 +757,7 @@
                 </i>
                 <span>Simple</span>
               </span>
-              <input type="radio" name="mode" value="simple" checked>
+              <input type="radio" name="mode" value="simple">
             </label>
           </fieldset>
         </aside>
